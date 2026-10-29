@@ -172,6 +172,21 @@ body{background:#f5f0e5}
 .partners-logos .partner-brand{width:100%;min-height:146px;background:#103e31;border-radius:20px}
 .partners-logos .partner-brand img{max-height:105px;max-width:85%;object-fit:contain}
 @media(max-width:680px){.partners-logos .partner-grid{grid-template-columns:1fr;gap:12px}.partners-logos .partner-box{min-height:130px}.partners-logos .partner-brand{min-height:120px}}
+
+/* V7: partner identity, aligned horizontal lockups, original V4 card palette */
+.partners-v7{padding-top:76px;padding-bottom:86px}
+.partners-v7 .partners-title{font-size:clamp(24px,3vw,38px);font-weight:700;letter-spacing:-.045em;margin-bottom:24px;color:var(--green)}
+.partners-v7 .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.partners-v7 .partner-box.partner-link{display:grid;grid-template-columns:100px minmax(0,1fr) 18px;align-items:center;gap:18px;min-height:160px;padding:22px;border:0;border-radius:28px;box-shadow:0 1px 0 rgba(16,62,49,.08);color:var(--green)}
+.partners-v7 .partner-box:nth-child(1){background:#fffaf0}
+.partners-v7 .partner-box:nth-child(2){background:#dce8d9}
+.partners-v7 .partner-box:nth-child(3){background:#f2d8b7}
+.partners-v7 .partner-brand{width:100px;height:100px;min-height:0;padding:14px;background:#103e31;border-radius:20px;display:flex;align-items:center;justify-content:center}
+.partners-v7 .partner-brand img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+.partners-v7 .partner-name{font-size:clamp(16px,1.35vw,21px);line-height:1.28;letter-spacing:-.03em;font-weight:700;overflow-wrap:break-word}
+.partners-v7 .partner-arrow{font-size:23px!important;align-self:center}
+@media(max-width:1150px){.partners-v7 .partner-grid{grid-template-columns:1fr}.partners-v7 .partner-box.partner-link{min-height:126px;grid-template-columns:84px minmax(0,1fr) 20px}.partners-v7 .partner-brand{width:84px;height:84px}}
+@media(max-width:680px){.partners-v7{padding-top:54px;padding-bottom:60px}.partners-v7 .partner-box.partner-link{padding:16px;gap:13px;grid-template-columns:74px minmax(0,1fr) 16px;min-height:108px}.partners-v7 .partner-brand{width:74px;height:74px;border-radius:15px;padding:11px}.partners-v7 .partner-name{font-size:16px}}
 </style>
 </head>
 <body>
@@ -227,11 +242,14 @@ body{background:#f5f0e5}
  <div class="step"><div class="step-num">02</div><h3>Зареєструйтеся</h3><p>Коротка Google-форма збере контактні дані та зафіксує обраний тренінг.</p></div>
  <div class="step"><div class="step-num">03</div><h3>Отримайте деталі</h3><p>Організатори використовують реєстраційні дані для комунікації щодо участі та логістики.</p></div>
 </div></div></section>
-<section class="partners partners-logos" aria-label="Партнери"><div class="partner-grid">
- <a class="partner-box partner-link" href="https://www.ndipvt.com.ua/" target="_blank" rel="noopener noreferrer" aria-label="Сайт УкрНДІПВТ ім. Л. Погорілого"><div class="partner-brand"><img src="partner-pohorilyi.png" alt="УкрНДІПВТ ім. Л. Погорілого" loading="lazy"></div></a>
- <a class="partner-box partner-link" href="https://www.mnau.edu.ua/" target="_blank" rel="noopener noreferrer" aria-label="Сайт Миколаївського національного аграрного університету"><div class="partner-brand"><img src="partner-mnau.png" alt="Миколаївський національний аграрний університет" loading="lazy"></div></a>
- <a class="partner-box partner-link" href="https://wfpagrohub.mnau.edu.ua/" target="_blank" rel="noopener noreferrer" aria-label="Сайт WFP Agrohub"><div class="partner-brand"><img src="partner-wfp.png" alt="World Food Programme" loading="lazy"></div></a>
-</div></section>
+<section class="partners partners-v7" aria-label="Партнери">
+ <div class="partners-title">Партнери</div>
+ <div class="partner-grid">
+  <a class="partner-box partner-link" href="https://www.ndipvt.com.ua/" target="_blank" rel="noopener noreferrer" aria-label="УкрНДІПВТ ім. Л. Погорілого — сайт"><span class="partner-brand"><img src="partner-pohorilyi.png" alt="" loading="lazy"></span><span class="partner-name">УкрНДІПВТ ім. Л. Погорілого</span><span class="partner-arrow" aria-hidden="true">↗</span></a>
+  <a class="partner-box partner-link" href="https://www.mnau.edu.ua/" target="_blank" rel="noopener noreferrer" aria-label="Миколаївський національний аграрний університет — сайт"><span class="partner-brand"><img src="partner-mnau.png" alt="" loading="lazy"></span><span class="partner-name">Миколаївський національний аграрний університет</span><span class="partner-arrow" aria-hidden="true">↗</span></a>
+  <a class="partner-box partner-link" href="https://wfpagrohub.mnau.edu.ua/" target="_blank" rel="noopener noreferrer" aria-label="World Food Programme — WFP Agrohub"><span class="partner-brand"><img src="partner-wfp.png" alt="" loading="lazy"></span><span class="partner-name">World Food Programme</span><span class="partner-arrow" aria-hidden="true">↗</span></a>
+ </div>
+</section>
 </main>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><button class="close" id="close" aria-label="Закрити">×</button><div class="modal-label">Реєстрація на тренінг</div><h2 id="modalTitle">Ваш вибір</h2><div class="selected" id="selected"></div><p>Після натискання відкриється форма реєстрації Google. Обраний тренінг показано вище, щоб ви могли легко вказати його у формі.</p><a class="go" id="go" href="#" target="_blank" rel="noopener">Перейти до реєстрації →</a><p class="setup">Форма реєстрації відкриється в новій вкладці.</p></div></div>
 <footer class="footer"><strong><img src="logo-transparent.svg" alt="" width="42" height="42"> Agricultural Innovation Centre · Ukraine</strong><span>Практичні знання з польових досліджень для українських фермерів.</span></footer>
