@@ -196,6 +196,39 @@ body{background:#f5f0e5}
 .catalog h2{line-height:1.08;padding-right:.1em;padding-bottom:.06em}
 @media(max-width:700px){.hero h1{font-size:clamp(37px,8.3vw,65px)}.catalog h2{font-size:clamp(42px,9vw,65px)}}
 .recording-link{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:10px 14px;border:1px solid currentColor;border-radius:100px;color:inherit;text-decoration:none;font-size:13px;font-weight:700;max-width:100%}.recording-link:hover{background:#fffaf0}.card .bottom{flex-wrap:wrap}
+
+/* V9: robust headline layout. Avoid gradient text glyph clipping on Chrome/Edge. */
+.hero{overflow:visible}
+.hero-inner{max-width:1540px;width:100%;box-sizing:border-box}
+.hero h1{font-size:clamp(38px,6.1vw,98px);line-height:1.12;letter-spacing:-.055em;max-width:100%;padding:0 .22em .16em 0;box-sizing:border-box;overflow:visible}
+.hero h1 .accent{display:inline;color:#c88724!important;background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:#c88724!important;letter-spacing:-.05em;padding:0 .16em .1em 0;white-space:normal;overflow:visible}
+@media(max-width:900px){.hero h1{font-size:clamp(36px,7vw,72px)}}
+@media(max-width:680px){.hero h1{font-size:clamp(34px,8.2vw,56px);letter-spacing:-.045em}.hero h1 .accent{letter-spacing:-.045em}}
+
+/* V11: extra polish */
+::selection{background:#edb34f;color:#103e31}
+.hero h1{text-wrap:balance}
+.kicker:before{content:'';display:inline-block;width:9px;height:9px;border-radius:50%;background:#e8a93e;margin-right:10px;animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(232,169,62,.25)}}
+.topbar{backdrop-filter:blur(18px) saturate(1.4)}
+.navlinks a:not(.menu-pill){position:relative;text-decoration:none!important}
+.navlinks a:not(.menu-pill):after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#e8a93e;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.navlinks a:not(.menu-pill):hover:after{transform:scaleX(1)}
+.card:after{content:'';position:absolute;left:26px;right:26px;top:0;height:4px;border-radius:0 0 6px 6px;background:#e8a93e;opacity:0;transition:opacity .25s}
+.card:hover:after,.card.expanded:after{opacity:1}
+.recording-link{background:#103e31;color:#fffaf0;border:0}.recording-link:hover{background:#1b5a47}
+.hype-stat{letter-spacing:-.04em}
+.result strong{background:linear-gradient(transparent 62%,rgba(255,250,240,.55) 62%)}
+.guide-band{background:radial-gradient(circle at 90% 0%,#1d5a46,#103e31 55%)}
+.evidence-video .caption{border-radius:100px;border:0;font-weight:700;box-shadow:var(--shadow)}
+html{scrollbar-color:#103e31 #f5f0e5}
+@media(prefers-reduced-motion:reduce){.kicker:before{animation:none}}
+
+/* V12: fact ticker */
+.marquee-track{animation-duration:90s}.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-size:15px}.marquee span:after{content:'✦';color:#edb34f;padding-left:28px}
+.marquee{padding:2px 0}
+@media(max-width:680px){.marquee{border-radius:28px}.marquee span:nth-child(n+3){display:none}.marquee span{white-space:normal;padding:12px 18px}.marquee span:after{display:none}.marquee span:nth-child(2){padding-top:0}}
 </style>
 </head>
 <body>
@@ -214,7 +247,7 @@ body{background:#f5f0e5}
   <div class="hero-actions"><a class="primary-cta" href="#trainings">Обрати тренінг <span>↗</span></a><a class="secondary-cta" href="#evidence">Побачити результати <span>↗</span></a></div>
  </div>
 </section>
-<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Біопрепарати</span><span>Біочар</span><span>Мінімальний обробіток</span><span>Відновлення ґрунтів після бойових дій</span><span>Біопрепарати</span><span>Біочар</span><span>Мінімальний обробіток</span><span>Відновлення ґрунтів після бойових дій</span></div></div>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Пальне на гектар: 89,0 → 41,2 л/га з вітчизняним Mini-till</span><span>Різниця у врожаї пшениці — лише 60 кг/га, а економія — 3 824 грн/га</span><span>+3 404 грн чистого ефекту з гектара від Mini-till</span><span>Біопрепарати окупаються вже від +0,10 т/га пшениці. У досліді приріст — 0,21–0,39 т/га</span><span>Біопрепарати: 673 грн/га — і 100% окупність на всіх варіантах досліду</span><span>Біочар: 3–4 тижні ферментації перед внесенням — і пориста структура готова</span><span>Біочар: запас продуктивної вологи 20,9 → 26,4 мм у шарі 0–40 см</span><span>Щільність ґрунту після відновлення: 1,31 → 1,23 г/см³ (контроль — 1,36)</span><span>Випробування 2026: на Київщині за січень–серпень випало лише 66% норми опадів</span><span>Тестуйте нову практику на 5–10% площі господарства</span><span>Пальне на гектар: 89,0 → 41,2 л/га з вітчизняним Mini-till</span><span>Різниця у врожаї пшениці — лише 60 кг/га, а економія — 3 824 грн/га</span><span>+3 404 грн чистого ефекту з гектара від Mini-till</span><span>Біопрепарати окупаються вже від +0,10 т/га пшениці. У досліді приріст — 0,21–0,39 т/га</span><span>Біопрепарати: 673 грн/га — і 100% окупність на всіх варіантах досліду</span><span>Біочар: 3–4 тижні ферментації перед внесенням — і пориста структура готова</span><span>Біочар: запас продуктивної вологи 20,9 → 26,4 мм у шарі 0–40 см</span><span>Щільність ґрунту після відновлення: 1,31 → 1,23 г/см³ (контроль — 1,36)</span><span>Випробування 2026: на Київщині за січень–серпень випало лише 66% норми опадів</span><span>Тестуйте нову практику на 5–10% площі господарства</span></div></div>
 <main>
 <section class="catalog" id="trainings">
  <div class="catalog-head"><h2>Оберіть тренінг</h2><p class="catalog-intro">Сесії тривають орієнтовно 1,5–2 години та проводяться українською. Фільтруйте програму за темою, форматом або регіоном. Записи проведених онлайн-сесій можна переглянути безпосередньо на цій сторінці.</p></div>
@@ -294,7 +327,7 @@ const hypeByTopic={
  'tillage':{k:'Що показало наше поле',stat:'до −53,7% пального',copy:'Mini-till скоротив витрати пального з 89,0 до 41,2 л/га. На тренінгу розберемо, звідки береться економія і як безпечно протестувати технологію на своєму полі.'},
  'bio':{k:'Що показало наше поле',stat:'+0,21–0,39 т/га',copy:'Такий приріст урожайності дали біопрепарати у випробуванні. Розберемо, коли вони окупаються, як правильно вносити їх і як поставити контроль.'},
  'biochar':{k:'Що показало наше поле',stat:'+26,3% продуктивної вологи',copy:'На ділянці з біочаром запаси продуктивної вологи зросли з 20,9 до 26,4 мм. Покажемо, де біочар має сенс, як його тестувати і чому це довгострокова інвестиція.'},
- 'restore':{k:'Що показало наше поле',stat:'11,4% → 15,8% вологи',copy:'Комплекс біочару та біопрепаратів дав найкраще утримання вологи та найбільше розущільнення пошкодженого ґрунту. Розберемо послідовність дій після розмінування та аналізу ґрунту.'}
+ 'restore':{k:'Що показало наше поле',stat:'Відновлення потребує діагностики',copy:'Після розмінування ґрунт не завжди готовий до сівби. Випробування показало перспективність комбінованого підходу, але рішення слід приймати після аналізу конкретної ділянки.'}
 };
 
 const hypeBySession={
@@ -307,7 +340,15 @@ const hypeBySession={
  '14 Dec 2026|Мінімальний обробіток ґрунту|УкрНДІПВТ':{k:'Викиди від пального',stat:'−126,2 кг CO₂/га',copy:'Розрахункові прямі викиди від дизеля за вітчизняного Mini-till були нижчими, ніж за традиційного обробітку.'},
  '17 Dec 2026|Біопрепарати|МНАУ':{k:'Якість зерна',stat:'14,1% → 15,3%',copy:'На ділянці вітчизняного Mini-till вміст білка у пшениці зріс після застосування біопрепаратів.'},
  '12 Jan 2027|Мінімальний обробіток ґрунту|УкрНДІПВТ':{k:'Точність сівби',stat:'2,3% відхилення',copy:'Таку похибку норми висіву показала сівалка СЗМ-4 «Ніка» під час випробувань.'},
- '26 Jan 2027|Біочар|МНАУ':{k:'Результат досліду · 2026',stat:'+26,3% вологи',copy:'У випробуванні з біочаром запас продуктивної вологи в шарі 0–40 см був вищим за контроль.'}
+ '26 Jan 2027|Біочар|МНАУ':{k:'Результат досліду · 2026',stat:'+26,3% вологи',copy:'У випробуванні з біочаром запас продуктивної вологи в шарі 0–40 см був вищим за контроль.'},
+ '28 Oct 2026|Відновлення ґрунтів після бойових дій|МНАУ':{k:'Відновлення після розмінування',stat:'Розмінування — лише початок',copy:'Навіть після усунення вибухонебезпечних предметів ґрунт може залишатися ущільненим або забрудненим. Потрібні аналізи й добір способу відновлення під конкретну ділянку.'},
+ '11 Nov 2026|Відновлення ґрунтів після бойових дій|УкрНДІПВТ':{k:'Вартість відновлення',stat:'104 161 грн/га',copy:'Орієнтовні прямі витрати на досліджений комбінований метод рекультивації. Без розмінування, лабораторних аналізів і посіву сидератів. Це сценарій, а не універсальна ціна.'},
+ '12 Nov 2026|Відновлення ґрунтів після бойових дій|УкрНДІПВТ':{k:'Польові вимірювання',stat:'Менше ущільнення',copy:'У комбінованому варіанті щільність ґрунту знизилася з 1,31 до 1,23 г/см³, тоді як на контролі зросла до 1,36 г/см³. Результат одного дослідного сезону.'},
+ '17 Nov 2026|Відновлення ґрунтів після бойових дій|МНАУ':{k:'Дослід на пошкодженому полі',stat:'Волога зберігалася краще',copy:'Наприкінці літа комбінований варіант з біочаром і біопрепаратами мав 15,8% вологості верхнього шару проти 11,4% на контролі. Вимірювання попередні.'},
+ '24 Nov 2026|Відновлення ґрунтів після бойових дій|МНАУ':{k:'Перед відновленням ґрунту',stat:'Спочатку аналіз',copy:'Після розмінування важливо перевірити ґрунт на забруднення й визначити його стан: однакові заходи не підходять кожній ділянці.'},
+ '26 Nov 2026|Відновлення ґрунтів після бойових дій|УкрНДІПВТ':{k:'Економіка рекультивації',stat:'Біочар — головна стаття витрат',copy:'У розрахунку комбінованого методу на біочар припадає 100 000 із 104 161 грн/га прямих витрат. Доцільність такого варіанту потребує окремої оцінки.'},
+ '08 Dec 2026|Відновлення ґрунтів після бойових дій|УкрНДІПВТ':{k:'Вимірювання у полі',stat:'1,23 проти 1,36 г/см³',copy:'У кінці спостережень щільність ґрунту в комбінованому варіанті була нижчою, ніж на контрольній ділянці. Показник вимірювали в шарі 0–50 см.'},
+ '18 Jan 2027|Відновлення ґрунтів після бойових дій|МНАУ':{k:'Практика відновлення',stat:'Немає єдиного рецепта',copy:'Польові дані показують перспективність поєднання біочару й біопрепаратів, але вибір технології залежить від аналізу ґрунту, ризиків забруднення та витрат.'}
 };
 function render(){const t=document.querySelector('#topic').value,f=document.querySelector('#format').value,r=document.querySelector('#region').value;const filtered=sessions.filter(s=>(t==='all'||s[2]===t)&&(f==='all'||s[3]===f)&&(r==='all'||s[4]===r));calendar.innerHTML='';count.textContent=`Знайдено: ${filtered.length}`;empty.style.display=filtered.length?'none':'block';const groups={};filtered.forEach(s=>{const m=s[0].split(' ')[1];(groups[m]??=[]).push(s)});Object.keys(months).forEach(m=>{if(!groups[m])return;const sec=document.createElement('section');sec.className='month';sec.innerHTML=`<div class="month-head"><div class="month-name">${months[m]}</div><div class="month-count">${groups[m].length} сесій</div></div><div class="sessions"></div>`;const wrap=sec.querySelector('.sessions');groups[m].forEach(s=>{const card=document.createElement('article');card.className='card';const format=s[3]==='online'?'Онлайн':s[7].includes('гібридно')?'Гібридно':'Очно';const h=hypeBySession[s[0]+"|"+s[5]+"|"+s[6]]||hypeByTopic[s[2]]||hypeByTopic.tillage;card.innerHTML=`<div class="date">${s[1]}</div><h3>${s[5]}</h3><div class="meta">${s[7]}<div class="partner">${s[6]}</div>${s[8]?'<div class="wfp">За логістичної підтримки WFP</div>':''}</div><div class="hype"><div class="hype-inner"><div class="hype-rule"></div><div class="hype-kicker">${h.k}</div><div class="hype-stat">${h.stat}</div><div class="hype-copy">${h.copy}</div></div></div>${s[0]==="22 Oct 2026"?'<a class="recording-link" href="https://www.youtube.com/watch?v=OWEK_8HvlIc&t=862s" target="_blank" rel="noopener noreferrer">Дивитися запис ↗</a>':''}<button class="card-toggle" type="button" aria-expanded="false">Чому варто прийти ↓</button><div class="bottom"><span class="format">${format}</span><button class="register" type="button">Зареєструватися ↗</button></div>`;const toggle=card.querySelector('.card-toggle');toggle.addEventListener('click',()=>{const on=card.classList.toggle('expanded');toggle.setAttribute('aria-expanded',String(on));toggle.textContent=on?'Згорнути ↑':'Чому варто прийти ↓'});card.querySelector('.register').addEventListener('click',()=>openModal(s));wrap.appendChild(card)});calendar.appendChild(sec)});}
 function openModal(s){document.querySelector('#selected').innerHTML=`<strong>${s[1]} · ${s[5]}</strong><br>${s[6]} · ${s[7]}`;const go=document.querySelector('#go');if(GOOGLE_FORM_URL){let url=GOOGLE_FORM_URL;if(TRAINING_ENTRY_ID){const join=url.includes('?')?'&':'?';url+=join+encodeURIComponent(TRAINING_ENTRY_ID)+'='+encodeURIComponent(`${s[1]} · ${s[5]} · ${s[7]}`)}go.href=url;go.onclick=null;}else{go.href='#';go.onclick=e=>{e.preventDefault();alert('Сторінка готова. Додайте URL Google Form у змінну GOOGLE_FORM_URL у коді, щоб активувати реєстрацію.');};}document.querySelector('#modal').classList.add('open');}
