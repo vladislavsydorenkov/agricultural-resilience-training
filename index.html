@@ -229,6 +229,12 @@ html{scrollbar-color:#103e31 #f5f0e5}
 .marquee span{font-size:15px}.marquee span:after{content:'✦';color:#edb34f;padding-left:28px}
 .marquee{padding:2px 0}
 @media(max-width:680px){.marquee{border-radius:28px}.marquee span:nth-child(n+3){display:none}.marquee span{white-space:normal;padding:12px 18px}.marquee span:after{display:none}.marquee span:nth-child(2){padding-top:0}}
+
+/* V13: keep long Ukrainian research headlines inside training cards */
+.card .hype,.card .hype-inner{min-width:0;max-width:100%}
+.card .hype-stat{font-size:clamp(25px,2.05vw,34px);line-height:1.12;letter-spacing:-.045em;overflow-wrap:anywhere;word-break:normal;hyphens:auto;max-width:100%}
+.card .hype-copy{overflow-wrap:break-word;max-width:100%}
+@media(max-width:680px){.card .hype-stat{font-size:clamp(26px,7vw,36px)}}
 </style>
 </head>
 <body>
@@ -266,7 +272,7 @@ html{scrollbar-color:#103e31 #f5f0e5}
   <p class="evidence-lead">Тренінги побудовані на польових випробуваннях 2026 року. Ми порівнювали системи обробітку, біопрепарати та біочар і вимірювали не лише врожайність, а й пальне, витрати, вологу та стан ґрунту.</p>
  </div>
  <div class="evidence-grid">
-  <div class="evidence-video"><video autoplay muted loop playsinline preload="metadata"><source src="field-motion-7.mp4" type="video/mp4"></video><div class="caption">Польові випробування · Київщина · 2026</div></div>
+  <div class="evidence-video"><video autoplay muted loop playsinline preload="metadata"><source src="field-motion-2.mp4" type="video/mp4"></video><div class="caption">Польові випробування · Київщина · 2026</div></div>
   <div class="result-stack">
    <div class="result"><strong>−53,7%</strong><div><h3>менше пального</h3><p>Вітчизняний Mini-till знизив використання пального з 89,0 до 41,2 л/га порівняно з традиційною технологією.</p></div></div>
    <div class="result"><strong>+₴3 404</strong><div><h3>чистого ефекту з гектара</h3><p>У випробуванні Mini-till економія виробничих витрат перекрила невелику різницю у врожайності пшениці.</p></div></div>
