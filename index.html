@@ -3,8 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="logo-transparent.svg">
+<meta name="theme-color" content="#0F3B36">
 <title>Тренінги для фермерів | Agricultural Innovation Centre</title>
 <meta name="description" content="Практичні тренінги для українських фермерів з біопрепаратів, біочару, мінімального обробітку та відновлення ґрунтів після бойових дій.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#111;--paper:#f4f4ef;--white:#fff;--lime:#c8ff58;--mint:#c9f0dc;--peach:#ffd4b8;--lav:#d9d0ff;--sky:#ccecff;--orange:#ff9d2e;--green:#0b3b2d;--muted:#666;--line:#c8c8c1}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,select{font:inherit}button{color:inherit}
@@ -22,21 +27,97 @@
 .evidence{max-width:1540px;margin:auto;padding:100px clamp(20px,4vw,64px) 110px}.evidence-head{display:grid;grid-template-columns:1.1fr .75fr;gap:70px;align-items:end;margin-bottom:48px}.evidence h2{font-size:clamp(48px,6.5vw,100px);line-height:.91;letter-spacing:-.055em;font-weight:500;margin:0}.evidence-lead{font-size:18px;line-height:1.5;margin:0;max-width:590px}.evidence-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:0;background:var(--paper);border:1px solid var(--ink)}.evidence-video{background:linear-gradient(135deg,var(--mint),var(--sky));min-height:520px;position:relative;overflow:hidden;border-right:1px solid var(--ink)}.evidence-video video{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}.evidence-video .caption{position:absolute;left:20px;bottom:18px;background:var(--paper);padding:10px 13px;font-size:12px;border:1px solid var(--ink)}.result-stack{display:grid;grid-template-rows:repeat(3,1fr);gap:0;background:transparent}.result+.result{border-top:1px solid var(--ink)}.result{padding:28px;background:var(--white);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}.result:nth-child(1){background:var(--lime)}.result:nth-child(2){background:var(--mint)}.result:nth-child(3){background:var(--peach)}.result strong{font-size:clamp(42px,4vw,68px);font-weight:500;letter-spacing:-.05em;line-height:.9;white-space:nowrap}.result h3{font-size:22px;font-weight:500;margin:0 0 9px;letter-spacing:-.025em}.result p{font-size:14px;line-height:1.45;margin:0;max-width:430px}.guide-band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;border:1px solid var(--ink);border-top:0;padding:34px;background:var(--green);color:var(--white)}.guide-band h3{font-size:clamp(30px,3vw,48px);line-height:1;letter-spacing:-.04em;font-weight:500;margin:0 0 10px}.guide-band p{margin:0;max-width:760px;line-height:1.45;color:#dce9e3}.guide-download{display:inline-block;background:var(--lime);color:var(--ink);padding:16px 20px;border:1px solid var(--ink);font-weight:700;white-space:nowrap}.evidence-note{font-size:12px;color:#666;margin-top:14px;line-height:1.45;max-width:900px}
 @media(max-width:1000px){.evidence-head,.evidence-grid{grid-template-columns:1fr}.evidence-video,.evidence-video video{min-height:420px}.guide-band{grid-template-columns:1fr}.guide-download{justify-self:start}}
 @media(max-width:680px){.evidence{padding-top:70px}.evidence-video,.evidence-video video{min-height:330px}.result{grid-template-columns:1fr;gap:12px}}
+
+/* AIC visual identity: large Diia-inspired editorial typography, AIC palette */
+:root{--ink:#10352f;--paper:#f8f5ec;--white:#fffdf7;--lime:#e2b04a;--mint:#d9e9db;--peach:#f3dbc3;--lav:#e8e4d9;--sky:#e4eee9;--orange:#e2b04a;--green:#0f3b36;--muted:#5e706a;--line:#b4c5b9}
+body{background:var(--paper);color:#102c27}
+.topbar{background:rgba(248,245,236,.96);height:84px;border-color:#9ab1a6;backdrop-filter:blur(16px)}
+.logo{gap:12px;font-size:16px;line-height:1.16;max-width:350px}
+.logo img{width:52px;height:52px;flex-shrink:0;object-fit:contain}
+.logo span{display:block}.logo small{display:block;font-size:11px;letter-spacing:.025em;margin-top:5px;color:#63756e}
+.navlinks{font-size:14px;font-weight:600}.menu-pill{background:var(--green);color:var(--paper);border-color:var(--green);padding:13px 20px}
+.hero{background:var(--paper);padding-top:85px;padding-bottom:76px}
+.hero-inner{position:relative}.kicker{letter-spacing:.16em;color:#547466;font-size:12px;font-weight:700}
+.hero h1{font-size:clamp(54px,8.2vw,132px);line-height:.97;letter-spacing:-.066em;max-width:1350px;font-weight:500;text-wrap:balance}
+.hero h1 .accent{background:transparent;color:#c08024;padding:0;margin-top:0}
+.hero-copy{line-height:1.4}.hero-bottom{margin-top:48px;align-items:center}.hero-stat{border-top:2px solid var(--green)}.hero-stat strong{color:#b67c24}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:42px}
+.primary-cta,.secondary-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:36px;padding:18px 22px;min-height:58px;border-radius:100px;font-weight:700;font-size:15px;transition:transform .2s,background .2s}
+.primary-cta{background:var(--green);color:#fffdf7}.secondary-cta{border:1.5px solid var(--green);color:var(--green)}.primary-cta:hover,.secondary-cta:hover{transform:translateY(-2px)}
+.marquee{background:#dfeadf;border-color:var(--green)}.marquee span{font-size:14px;font-weight:600}
+.catalog{padding-top:105px}.catalog h2,.evidence h2,.how h2{font-weight:500;line-height:1.03;text-wrap:balance}
+.filters{border-color:var(--green)}.filter{background:var(--white);border-color:#8fa79b;color:var(--green);font-weight:600}.filter:focus{outline-color:#e2b04a}
+.month{border-color:#8fa79b}.month-name{font-weight:500}.sessions{border-color:#9eafa4}.card{border-color:#9eafa4;min-width:0;overflow:hidden;transition:background .22s ease,min-height .28s ease,box-shadow .22s ease}
+.card:nth-child(5n+1){background:#dcebe1}.card:nth-child(5n+2){background:#f4dfca}.card:nth-child(5n+3){background:#fffdf7}.card:nth-child(5n+4){background:#e1ede7}.card:nth-child(5n){background:#e9e4d8}
+.card:hover,.card:focus-within,.card.expanded{background:#e9d49b;box-shadow:inset 0 0 0 2px #ad7932}
+.card h3{line-height:1.09;overflow-wrap:break-word}.register{color:#103b35}.format{border-color:#647c70}
+.how{background:var(--green);color:#fffdf7}.step-num{color:#e2b04a}.step p{color:#d4e1d8}
+.result:nth-child(1){background:#e7d399}.result:nth-child(2){background:#d9e9db}.result:nth-child(3){background:#f4dfca}
+.result strong{color:#173d36}.guide-band{background:#0f3b36}.guide-download{background:#e2b04a}
+.evidence-video{background:#d9e9db!important}.evidence-video video{background:#d9e9db!important;object-fit:cover}
+.footer{align-items:center}.footer strong{display:flex;align-items:center;gap:12px}
+.modal-box{background:#f3e0b5}.go{background:#0f3b36;color:#fffdf7}
+@media(max-width:680px){.topbar{padding-left:16px;padding-right:16px}.logo{font-size:13px;gap:7px}.logo img{width:40px;height:40px}.logo small{font-size:9px}.navlinks a[href="#evidence"]{display:none}.navlinks{font-size:12px}.menu-pill{padding:10px 12px}.hero h1{font-size:clamp(43px,10vw,68px);letter-spacing:-.055em}.hero{padding-top:56px}.hero-actions>a{width:100%}.hero-stat strong{font-size:48px}}
+@media(prefers-reduced-motion:reduce){.primary-cta,.secondary-cta,.card{transition:none}}
+
+
+/* V3: Ukrainian digital-service typography and stronger AIC colour identity */
+:root{--ink:#123c31;--paper:#f5f0e5;--white:#fffaf0;--lime:#e8a93e;--mint:#d3e4d4;--peach:#f4d6ad;--lav:#e8e2cf;--sky:#dce8d9;--orange:#e8a93e;--green:#103e31;--muted:#516a5c;--line:#a4b8a8}
+html{scroll-padding-top:90px}
+body{font-family:'Manrope', 'Arial',sans-serif;font-weight:400;background:var(--paper);color:var(--ink)}
+button,select,input{font-family:inherit}
+.topbar{background:rgba(245,240,229,.97);border-bottom:2px solid var(--green)}
+.logo{font-weight:800;letter-spacing:-.035em}.logo small{font-weight:500}
+.navlinks{font-weight:700;letter-spacing:-.015em}
+.hero{background:linear-gradient(155deg,#f5f0e5 0%,#f5f0e5 70%,#e6ebd8 100%);border-bottom:0}
+.kicker{font-weight:700;letter-spacing:.09em;color:#486a53}
+.hero h1{font-family:'Manrope',Arial,sans-serif;font-weight:700;letter-spacing:-.075em;line-height:1.02;max-width:1440px}
+.hero h1 .accent{color:#b8751b;display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero-copy{font-weight:500;line-height:1.47}.hero-stat strong{font-weight:800;color:#b8751b}
+.primary-cta{background:var(--orange);color:#163c30;border:1px solid #b77c2b}
+.primary-cta:hover{background:#f0bd64}.secondary-cta{background:#e0eadc}
+.marquee{background:var(--green);color:var(--paper);border-color:var(--green)}.marquee span{font-weight:700}
+.catalog{background:var(--paper)}.catalog h2,.evidence h2,.how h2{font-family:'Manrope',Arial,sans-serif;font-weight:700;letter-spacing:-.064em;line-height:1.08}
+.catalog-intro,.evidence-lead{font-weight:500}
+.filter{background:#fffaf0;border:1.5px solid #789887;font-weight:600}
+.filter:hover{border-color:var(--green);background:#e2ebdd}
+.month-name{font-weight:700;letter-spacing:-.055em}
+.card{transition:background .22s ease,min-height .28s ease,box-shadow .22s ease}
+.card:nth-child(5n+1){background:#d3e4d4}.card:nth-child(5n+2){background:#f2d8b7}.card:nth-child(5n+3){background:#fffaf0}.card:nth-child(5n+4){background:#dce8d9}.card:nth-child(5n){background:#e7e1cd}
+.card:hover,.card:focus-within,.card.expanded{background:#f0cb79;box-shadow:inset 0 0 0 2px #b17c26}
+.card h3{font-weight:700;letter-spacing:-.047em;line-height:1.13}
+.date{font-weight:700}.meta{font-weight:500}.hype-stat{font-weight:800}.hype-copy{line-height:1.5}
+.register{font-weight:800}.format{font-weight:700}
+.evidence{background:var(--paper)}
+.evidence-grid{border:2px solid var(--green)}.evidence-video{border-right:2px solid var(--green)}
+.result{gap:18px;padding:30px}.result:nth-child(1){background:#efca79}.result:nth-child(2){background:#d0e4d4}.result:nth-child(3){background:#f2d9b7}
+.result strong{font-weight:800;letter-spacing:-.07em}.result h3{font-weight:700}.result p{font-weight:500;line-height:1.55}
+.guide-band{background:#103e31;color:#f5f0e5;border-color:#103e31;padding:clamp(28px,4vw,52px)}
+.guide-band h3{font-weight:700;line-height:1.12}.guide-download{background:#edb34f;color:#15392f;border:0;border-radius:100px;font-weight:800;padding:18px 24px}
+.guide-download:hover{background:#f5c875}
+.how{background:#103e31}.how h2{max-width:1180px}.step h3{font-weight:700}.step-num{color:#edb34f;font-weight:800}
+.partners{background:var(--paper)}.partner-box:nth-child(2){background:#dce8d9}.partner-box strong{font-weight:700}
+.modal-box{background:#f1d8a4}.modal h2{font-weight:700}.go{background:#103e31;border-radius:100px}
+:focus-visible{outline:3px solid #c88321;outline-offset:3px}
+@media(max-width:1000px){.hero h1{font-size:clamp(48px,8.1vw,100px)}.evidence-grid{grid-template-columns:1fr}.evidence-video{border-right:0;border-bottom:2px solid var(--green)}}
+@media(max-width:680px){.hero h1{font-size:clamp(39px,9.5vw,64px);letter-spacing:-.065em;overflow-wrap:break-word}.hero{padding-bottom:60px}.result strong{white-space:normal}.guide-band{gap:24px}.guide-download{white-space:normal;text-align:center}.card h3{font-size:28px}}
+
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="logo">AIC <small>Аграрний інноваційний центр</small></div>
+  <a class="logo" href="#top" aria-label="Аграрний інноваційний центр, на початок"><img src="logo-transparent.svg" alt="" width="52" height="52"><span>Аграрний інноваційний центр<small>Навчальна програма · Україна</small></span></a>
   <nav class="navlinks"><a href="#trainings">Тренінги</a><a href="#evidence">Результати</a><a class="menu-pill" href="https://vladislavsydorenkov.github.io/futureproof-sustainable-farming-guide/">Про проєкт ↗</a></nav>
 </header>
-<section class="hero">
+<section class="hero" id="top">
  <div class="hero-inner">
-  <div class="kicker">Навчальна програма · 2026–2027</div>
+  <div class="kicker">АГРАРНИЙ ІННОВАЦІЙНИЙ ЦЕНТР / 2026–2027</div>
   <h1>Практичні тренінги<br><span class="accent">для українських фермерів</span></h1>
   <div class="hero-bottom">
    <p class="hero-copy">Показуємо, як застосовувати результати польових досліджень у господарстві. Оберіть тему, формат і регіон та зареєструйтеся на зручну сесію.</p>
    <div class="hero-stat"><strong>20</strong><span>практичних сесій з УкрНДІПВТ ім. Л. Погорілого та Миколаївським національним аграрним університетом</span></div>
   </div>
+  <div class="hero-actions"><a class="primary-cta" href="#trainings">Обрати тренінг <span>↗</span></a><a class="secondary-cta" href="#evidence">Побачити результати <span>↗</span></a></div>
  </div>
 </section>
 <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Біопрепарати</span><span>Біочар</span><span>Мінімальний обробіток</span><span>Відновлення ґрунтів після бойових дій</span><span>Біопрепарати</span><span>Біочар</span><span>Мінімальний обробіток</span><span>Відновлення ґрунтів після бойових дій</span></div></div>
@@ -58,7 +139,7 @@
   <p class="evidence-lead">Тренінги побудовані на польових випробуваннях 2026 року. Ми порівнювали системи обробітку, біопрепарати та біочар і вимірювали не лише врожайність, а й пальне, витрати, вологу та стан ґрунту.</p>
  </div>
  <div class="evidence-grid">
-  <div class="evidence-video"><video autoplay muted loop playsinline preload="metadata"><source src="field-motion-4.mp4" type="video/mp4"></video><div class="caption">Польові випробування · Київщина · 2026</div></div>
+  <div class="evidence-video"><video autoplay muted loop playsinline preload="metadata"><source src="field-motion-2.mp4" type="video/mp4"></video><div class="caption">Польові випробування · Київщина · 2026</div></div>
   <div class="result-stack">
    <div class="result"><strong>−53,7%</strong><div><h3>менше пального</h3><p>Вітчизняний Mini-till знизив використання пального з 89,0 до 41,2 л/га порівняно з традиційною технологією.</p></div></div>
    <div class="result"><strong>+₴3 404</strong><div><h3>чистого ефекту з гектара</h3><p>У випробуванні Mini-till економія виробничих витрат перекрила невелику різницю у врожайності пшениці.</p></div></div>
@@ -76,14 +157,14 @@
  <div class="step"><div class="step-num">02</div><h3>Зареєструйтеся</h3><p>Коротка Google-форма збере контактні дані та зафіксує обраний тренінг.</p></div>
  <div class="step"><div class="step-num">03</div><h3>Отримайте деталі</h3><p>Організатори використовують реєстраційні дані для комунікації щодо участі та логістики.</p></div>
 </div></div></section>
-<section class="partners"><div class="partners-title">Партнери програми</div><div class="partner-grid">
+<section class="partners"><div class="partners-title">Хто проводить тренінги</div><div class="partner-grid">
  <div class="partner-box"><strong>УкрНДІПВТ ім. Л. Погорілого</strong><span>10 тренінгових сесій</span></div>
  <div class="partner-box"><strong>Миколаївський національний аграрний університет</strong><span>10 тренінгових сесій</span></div>
  <div class="partner-box"><strong>World Food Programme</strong><span>Логістична підтримка окремих сесій у громадах</span></div>
 </div></section>
 </main>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><button class="close" id="close" aria-label="Закрити">×</button><div class="modal-label">Реєстрація на тренінг</div><h2 id="modalTitle">Ваш вибір</h2><div class="selected" id="selected"></div><p>Після натискання відкриється форма реєстрації Google. Обраний тренінг показано вище, щоб ви могли легко вказати його у формі.</p><a class="go" id="go" href="#" target="_blank" rel="noopener">Перейти до реєстрації →</a><p class="setup">Форма реєстрації відкриється в новій вкладці.</p></div></div>
-<footer class="footer"><strong>Agricultural Innovation Centre · Ukraine</strong><span>Практичні знання з польових досліджень для українських фермерів.</span></footer>
+<footer class="footer"><strong><img src="logo-transparent.svg" alt="" width="42" height="42"> Agricultural Innovation Centre · Ukraine</strong><span>Практичні знання з польових досліджень для українських фермерів.</span></footer>
 <script>
 (()=>{
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdAVjFRlQ8JA7FgM9n8Jhijz8VhJeSxZLvOhEXlzQ1a25NpLQ/viewform";
