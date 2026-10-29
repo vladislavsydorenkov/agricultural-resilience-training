@@ -156,6 +156,22 @@ body{background:#f5f0e5}
 @media(max-width:1100px){.step,.step+.step{padding:24px}}
 @media(max-width:680px){.topbar{height:60px;top:8px;margin-top:8px}.how{border-radius:30px}.card{min-height:280px}}
 @media(prefers-reduced-motion:reduce){.card,.modal-box{animation:none}.card:hover,.step:hover,.partner-box:hover,.result:hover{transform:none}}
+
+/* V5: partner links and logos */
+.partner-box.partner-link{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.partner-box.partner-link:hover{transform:translateY(-5px);box-shadow:0 20px 42px -22px rgba(16,62,49,.4)}
+.partner-brand{display:flex;align-items:center;justify-content:center;min-height:135px;border-radius:18px;padding:18px;background:#103e31}
+.partner-brand img{max-width:100%;max-height:112px;width:auto;height:auto;object-fit:contain}
+.partner-name{display:block;font-size:clamp(20px,2vw,25px);font-weight:700;line-height:1.2}
+.partner-foot{display:flex;justify-content:space-between;align-items:end;gap:12px}
+.partner-foot span{font-size:13px;line-height:1.45}.partner-arrow{font-size:25px!important;flex-shrink:0}
+@media(max-width:680px){.partner-brand{min-height:110px}}
+.partners-logos{padding-top:54px;padding-bottom:54px}
+.partners-logos .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.partners-logos .partner-box{min-height:170px;padding:12px;justify-content:center}
+.partners-logos .partner-brand{width:100%;min-height:146px;background:#103e31;border-radius:20px}
+.partners-logos .partner-brand img{max-height:105px;max-width:85%;object-fit:contain}
+@media(max-width:680px){.partners-logos .partner-grid{grid-template-columns:1fr;gap:12px}.partners-logos .partner-box{min-height:130px}.partners-logos .partner-brand{min-height:120px}}
 </style>
 </head>
 <body>
@@ -211,10 +227,10 @@ body{background:#f5f0e5}
  <div class="step"><div class="step-num">02</div><h3>Зареєструйтеся</h3><p>Коротка Google-форма збере контактні дані та зафіксує обраний тренінг.</p></div>
  <div class="step"><div class="step-num">03</div><h3>Отримайте деталі</h3><p>Організатори використовують реєстраційні дані для комунікації щодо участі та логістики.</p></div>
 </div></div></section>
-<section class="partners"><div class="partners-title">Хто проводить тренінги</div><div class="partner-grid">
- <div class="partner-box"><strong>УкрНДІПВТ ім. Л. Погорілого</strong><span>10 тренінгових сесій</span></div>
- <div class="partner-box"><strong>Миколаївський національний аграрний університет</strong><span>10 тренінгових сесій</span></div>
- <div class="partner-box"><strong>World Food Programme</strong><span>Логістична підтримка окремих сесій у громадах</span></div>
+<section class="partners partners-logos" aria-label="Партнери"><div class="partner-grid">
+ <a class="partner-box partner-link" href="https://www.ndipvt.com.ua/" target="_blank" rel="noopener noreferrer" aria-label="Сайт УкрНДІПВТ ім. Л. Погорілого"><div class="partner-brand"><img src="partner-pohorilyi.png" alt="УкрНДІПВТ ім. Л. Погорілого" loading="lazy"></div></a>
+ <a class="partner-box partner-link" href="https://www.mnau.edu.ua/" target="_blank" rel="noopener noreferrer" aria-label="Сайт Миколаївського національного аграрного університету"><div class="partner-brand"><img src="partner-mnau.png" alt="Миколаївський національний аграрний університет" loading="lazy"></div></a>
+ <a class="partner-box partner-link" href="https://wfpagrohub.mnau.edu.ua/" target="_blank" rel="noopener noreferrer" aria-label="Сайт WFP Agrohub"><div class="partner-brand"><img src="partner-wfp.png" alt="World Food Programme" loading="lazy"></div></a>
 </div></section>
 </main>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><button class="close" id="close" aria-label="Закрити">×</button><div class="modal-label">Реєстрація на тренінг</div><h2 id="modalTitle">Ваш вибір</h2><div class="selected" id="selected"></div><p>Після натискання відкриється форма реєстрації Google. Обраний тренінг показано вище, щоб ви могли легко вказати його у формі.</p><a class="go" id="go" href="#" target="_blank" rel="noopener">Перейти до реєстрації →</a><p class="setup">Форма реєстрації відкриється в новій вкладці.</p></div></div>
