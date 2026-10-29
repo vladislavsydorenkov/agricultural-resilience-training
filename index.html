@@ -102,6 +102,60 @@ button,select,input{font-family:inherit}
 @media(max-width:1000px){.hero h1{font-size:clamp(48px,8.1vw,100px)}.evidence-grid{grid-template-columns:1fr}.evidence-video{border-right:0;border-bottom:2px solid var(--green)}}
 @media(max-width:680px){.hero h1{font-size:clamp(39px,9.5vw,64px);letter-spacing:-.065em;overflow-wrap:break-word}.hero{padding-bottom:60px}.result strong{white-space:normal}.guide-band{gap:24px}.guide-download{white-space:normal;text-align:center}.card h3{font-size:28px}}
 
+
+/* V4: Diia-style polish — rounded soft cards, pill UI, bolder depth. Same AIC palette. */
+:root{--r:28px;--shadow:0 18px 40px -22px rgba(16,62,49,.45)}
+body{background:#f5f0e5}
+.topbar{margin:12px clamp(12px,2vw,28px) 0;border:0;border-radius:100px;height:68px;box-shadow:0 10px 30px -18px rgba(16,62,49,.5);background:rgba(255,250,240,.9);top:12px}
+.menu-pill{border-radius:100px;transition:transform .2s,background .2s}.menu-pill:hover{transform:translateY(-2px);background:#1b5a47}
+.logo img{width:44px;height:44px}
+.hero{position:relative;overflow:hidden;padding-top:70px}
+.hero:before,.hero:after{content:'';position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
+.hero:before{width:520px;height:520px;right:-120px;top:-140px;background:#f0cb79}
+.hero:after{width:460px;height:460px;left:-160px;bottom:-200px;background:#c4dcc8}
+.hero-inner{position:relative;z-index:1}
+.kicker{display:inline-block;background:#fffaf0;border-radius:100px;padding:9px 16px;box-shadow:var(--shadow)}
+.hero h1 .accent{background:linear-gradient(100deg,#b8751b,#e8a93e 60%,#c88321);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-stat{background:#fffaf0;border:0;border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}
+.primary-cta,.secondary-cta{border-radius:100px;box-shadow:0 12px 24px -16px rgba(16,62,49,.6)}
+.marquee{margin:0 clamp(12px,2vw,28px);border-radius:100px;border:0}
+.filters{border:0;padding:0 0 8px;gap:10px}
+.filter{border-radius:100px;transition:transform .2s,border-color .2s,background .2s}.filter:hover{transform:translateY(-2px)}
+.count{background:#103e31;color:#f5f0e5;border-radius:100px;padding:10px 16px;font-weight:700}
+.month{border:0;margin-top:46px}
+.month-head{padding:10px 4px 18px}
+.month-count{background:#fffaf0;border-radius:100px;padding:7px 14px;font-weight:700}
+.sessions{gap:16px;border:0}
+.card{border:0;border-radius:var(--r);padding:26px;box-shadow:0 1px 0 rgba(16,62,49,.08);animation:rise .5s both;transition:transform .25s ease,background .22s ease,min-height .28s ease,box-shadow .25s ease}
+.card:nth-child(2){animation-delay:.05s}.card:nth-child(3){animation-delay:.1s}.card:nth-child(4){animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card:hover,.card:focus-within,.card.expanded{transform:translateY(-6px);box-shadow:0 26px 44px -26px rgba(16,62,49,.6)}
+.card h3{font-size:clamp(24px,2vw,32px)}
+.date{display:inline-block;align-self:flex-start;background:rgba(255,250,240,.75);border-radius:100px;padding:7px 13px;font-size:14px}
+.format{background:rgba(255,250,240,.7);border:0;padding:9px 13px}
+.register{background:#103e31;color:#fffaf0;border-radius:100px;padding:11px 16px;transition:transform .2s,background .2s}
+.register:hover{background:#1b5a47;text-decoration:none;transform:translateX(3px)}
+.hype-stat{color:#103e31}
+.evidence-grid{border:0;border-radius:36px 36px 0 0;overflow:hidden;box-shadow:var(--shadow)}
+.evidence-video{border-right:0}
+.result{transition:transform .25s}.result:hover{transform:scale(1.015)}
+.guide-band{border:0;border-radius:0 0 36px 36px}
+.guide-download{transition:transform .2s,background .2s}.guide-download:hover{transform:translateY(-2px)}
+.how{margin:0 clamp(12px,2vw,28px);border-radius:44px}
+.steps{border:0;gap:16px}
+.step,.step+.step{background:rgba(255,250,240,.08);border:0;border-radius:var(--r);padding:26px;min-height:240px;transition:background .25s,transform .25s}
+.step:hover{background:rgba(255,250,240,.15);transform:translateY(-4px)}
+.step-num{display:inline-block;background:#edb34f;color:#103e31;border-radius:100px;padding:6px 12px}
+.partner-grid{border:0;gap:16px}
+.partner-box{border:0;border-radius:var(--r);background:#fffaf0;box-shadow:var(--shadow);transition:transform .25s}.partner-box:hover{transform:translateY(-4px)}
+.partner-box:nth-child(2){background:#dce8d9}.partner-box:nth-child(3){background:#f2d8b7}
+.footer{margin:0 clamp(12px,2vw,28px) 16px;border:0;background:#fffaf0;border-radius:var(--r)}
+.modal{backdrop-filter:blur(6px)}.modal-box{border:0;border-radius:36px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);animation:rise .3s both}
+.close{border-radius:50%;width:44px;height:44px;line-height:1;background:rgba(16,62,49,.1);font-size:28px}
+.selected{border-color:rgba(16,62,49,.35)}
+@media(max-width:1100px){.step,.step+.step{padding:24px}}
+@media(max-width:680px){.topbar{height:60px;top:8px;margin-top:8px}.how{border-radius:30px}.card{min-height:280px}}
+@media(prefers-reduced-motion:reduce){.card,.modal-box{animation:none}.card:hover,.step:hover,.partner-box:hover,.result:hover{transform:none}}
 </style>
 </head>
 <body>
