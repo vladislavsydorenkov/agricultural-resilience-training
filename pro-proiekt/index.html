@@ -420,6 +420,29 @@ nav .wrap{height:62px;width:calc(100% - 36px)}
 .mini-callout{margin-top:18px;padding-top:14px;border-top:1px solid rgba(244,240,230,.14);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#b9c5bd}.moisture-bars .bar{min-width:96px}.cost-stack{margin-top:28px;display:flex;height:72px;border-radius:16px;overflow:hidden;background:rgba(244,240,230,.08);border:1px solid rgba(244,240,230,.12)}.cost-seg{min-width:0;display:flex;align-items:center;justify-content:center;padding:10px;font-size:11px;font-weight:800;line-height:1.2;text-align:center;color:#10251b}.cost-seg.biochar{background:linear-gradient(135deg,var(--lime),#d3ef82)}.cost-seg.inputs{background:var(--orange);min-width:118px;color:#f4f0e6}.calendar .cal-events{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}.calendar .cal-event{min-height:164px}.calendar .november-events{grid-template-columns:repeat(4,minmax(0,1fr))}.calendar .cal-month{font-size:22px}.cal-event small{padding-right:2px}.training-note{max-width:900px}
 @media(max-width:700px){.cost-stack{height:auto;flex-direction:column}.cost-seg{width:100%!important;min-height:54px}.calendar .cal-events,.calendar .november-events{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.calendar .cal-events,.calendar .november-events{grid-template-columns:1fr}}
+
+/* Mobile fixes: field-work text vs video, trial diagram width, map navigation */
+.hero{overflow:hidden}html,body{overflow-x:hidden;max-width:100%}
+@media(max-width:900px){
+ .paper-motion .motion-split{grid-template-columns:minmax(0,1fr)!important;gap:32px!important}
+ .paper-motion .motion-copy{max-width:none!important}
+ .paper-motion .motion-copy h3{max-width:none!important;font-size:clamp(30px,8.4vw,42px)!important}
+ .paper-motion .motion-large{min-height:320px}
+ .aicfl-stage{grid-template-columns:minmax(0,1fr)!important}
+ .aicfl-stage>*,.aicfl-sites,.aicfl-loc,.aicfl-site{min-width:0}
+ .aicfl-sname,.aicfl-ssub,.aicfl-ssize,.aicfl-mapnote{overflow-wrap:anywhere}
+ .aicfl-modes{flex-wrap:wrap;overflow:visible;gap:8px 20px}
+}
+.map-lock,.map-done{display:none}
+@media(max-width:900px){
+ .mapbox{position:relative;height:min(84vh,720px)!important;min-height:520px}
+ .mapbox iframe{pointer-events:none}.mapbox.map-on iframe{pointer-events:auto}
+ .map-lock{display:flex;position:absolute;inset:0;z-index:4;align-items:center;justify-content:center;background:rgba(3,10,7,.28);border:0;cursor:pointer;font:inherit}
+ .map-lock span{padding:14px 20px;border-radius:999px;background:#f2a93b;color:#10251b;font-weight:800;font-size:14px;box-shadow:0 14px 34px -14px rgba(0,0,0,.7)}
+ .mapbox.map-on .map-lock{display:none}
+ .map-done{position:absolute;top:10px;right:10px;z-index:5;padding:9px 14px;border:0;border-radius:999px;background:#f2a93b;color:#10251b;font:inherit;font-weight:800;font-size:12px;cursor:pointer}
+ .mapbox.map-on .map-done{display:block}
+}
 </style>
 
 <script>
@@ -700,6 +723,20 @@ header p{margin:0;color:var(--mute);font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
 h1,h2,h3{font-weight:700!important;letter-spacing:-.04em}.ol{letter-spacing:.03em!important}.glass,#tourBtn,.btn{border-radius:22px}#tourBtn,.btn{border-radius:999px}
+
+#infoBtn,#zoomc{display:none}
+@media (max-width:760px){
+ header{right:150px}header h1{font-size:18px;line-height:1.15}header p{display:none}
+ #controls{bottom:84px}#controls .seg,#controls .row,#controls #bFit{display:none}#q{font-size:16px}
+ #sheet .seg{margin:8px 0}#sheet .row{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;margin:8px 0}#sheet #bFit{display:block;width:100%;margin:8px 0 12px}
+ #sheet .ui,#sheet #legend,#sheet #stats{animation:none!important;opacity:1!important}
+ #tourbar{gap:8px;padding:0 12px}#tourBtn{padding:11px 14px;font-size:12.5px}
+ #infoBtn{display:inline-block;pointer-events:auto;font-size:12.5px;padding:11px 14px;border-radius:999px;white-space:nowrap}
+ #zoomc{display:flex;flex-direction:column;gap:8px;position:fixed;right:12px;top:46%;transform:translateY(-50%);z-index:5}
+ #zoomc .btn{width:44px;height:44px;font-size:24px;padding:0;line-height:1;border-radius:14px}
+ #sheet{position:fixed;left:12px;right:12px;top:78px;bottom:84px;overflow:auto;z-index:8;padding:12px}#sheet[hidden]{display:none}
+ #sheet #legend,#sheet #stats{display:block!important;position:static;width:auto;max-width:none;margin:0 0 10px;background:none;border:0;box-shadow:none;padding:6px;-webkit-backdrop-filter:none;backdrop-filter:none}
+}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -735,7 +772,7 @@ h1,h2,h3{font-weight:700!important;letter-spacing:-.04em}.ol{letter-spacing:.03e
   &lt;div id=&quot;note&quot; style=&quot;display:block&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id=&quot;tourbar&quot; class=&quot;ui&quot;&gt;&lt;button id=&quot;tourBtn&quot;&gt;▶ Переглянути інтерактивний тур&lt;/button&gt;&lt;/div&gt;
+&lt;div id=&quot;tourbar&quot; class=&quot;ui&quot;&gt;&lt;button id=&quot;tourBtn&quot;&gt;▶ Переглянути інтерактивний тур&lt;/button&gt;&lt;button id=&quot;infoBtn&quot; class=&quot;btn&quot; type=&quot;button&quot;&gt;ⓘ Шари&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;zoomc&quot; class=&quot;ui&quot;&gt;&lt;button class=&quot;btn&quot; id=&quot;zIn&quot; type=&quot;button&quot; aria-label=&quot;Наблизити&quot;&gt;+&lt;/button&gt;&lt;button class=&quot;btn&quot; id=&quot;zOut&quot; type=&quot;button&quot; aria-label=&quot;Віддалити&quot;&gt;−&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;sheet&quot; class=&quot;glass&quot; hidden&gt;&lt;/div&gt;
 &lt;div id=&quot;tourcard&quot; class=&quot;glass&quot; hidden&gt;
   &lt;small id=&quot;tN&quot;&gt;&lt;/small&gt;&lt;h3 id=&quot;tT&quot;&gt;&lt;/h3&gt;&lt;p id=&quot;tX&quot;&gt;&lt;/p&gt;
   &lt;div class=&quot;tnav&quot;&gt;&lt;div class=&quot;dots&quot; id=&quot;tD&quot;&gt;&lt;/div&gt;&lt;button class=&quot;btn&quot; id=&quot;tP&quot;&gt;←&lt;/button&gt;&lt;button class=&quot;btn&quot; id=&quot;tNx&quot;&gt;Далі →&lt;/button&gt;&lt;button class=&quot;btn&quot; id=&quot;tC&quot;&gt;✕&lt;/button&gt;&lt;/div&gt;
@@ -890,6 +927,14 @@ $(&#x27;#note&#x27;).innerHTML=&#x27;Лінія фронту: DeepStateMap.Live 
 window.__ready=true;
 })();
 &lt;/script&gt;
+&lt;script&gt;
+(function(){var svg=document.querySelector(&#x27;#map&#x27;);
+function zoom(d){var r=svg.getBoundingClientRect();svg.dispatchEvent(new WheelEvent(&#x27;wheel&#x27;,{clientX:r.left+r.width/2,clientY:r.top+r.height/2,deltaY:d,bubbles:true,cancelable:true}))}
+document.querySelector(&#x27;#zIn&#x27;).onclick=function(){zoom(-300)};document.querySelector(&#x27;#zOut&#x27;).onclick=function(){zoom(300)};
+var sheet=document.querySelector(&#x27;#sheet&#x27;),btn=document.querySelector(&#x27;#infoBtn&#x27;);
+btn.onclick=function(){if(!sheet.dataset.f){[&#x27;.seg&#x27;,&#x27;.row&#x27;,&#x27;#bFit&#x27;,&#x27;#legend&#x27;,&#x27;#stats&#x27;].forEach(function(q){sheet.appendChild(document.querySelector(q))});sheet.dataset.f=1}sheet.hidden=!sheet.hidden;btn.textContent=sheet.hidden?&#x27;ⓘ Шари&#x27;:&#x27;✕ Закрити&#x27;};
+})();
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe></div><p style="font-size:11px;color:#6f7a73;margin-top:14px">Концепція конкурсу, строки, фінансування та географія є попередніми й залежать від остаточних юридичних і процедурних умов. Шар лінії фронту на інтерактивній мапі є орієнтовним і може змінюватися.</p></div></section>
@@ -911,4 +956,12 @@ document.querySelectorAll('.region-tab,.map-jump').forEach(b=>b.addEventListener
 const mainFilm=document.getElementById('mainFilm');
 const soundToggle=document.getElementById('soundToggle');
 if(mainFilm&&soundToggle){soundToggle.addEventListener('click',()=>{mainFilm.muted=!mainFilm.muted;soundToggle.innerHTML=mainFilm.muted?'Увімкнути звук&nbsp; 🔊':'Вимкнути звук&nbsp; 🔇';soundToggle.setAttribute('aria-label',mainFilm.muted?'Увімкнути звук':'Вимкнути звук');if(mainFilm.paused)mainFilm.play().catch(()=>{});});}
-</script></body></html>
+</script><script>
+(function(){var box=document.querySelector('.mapbox');if(!box)return;
+var lock=document.createElement('button');lock.type='button';lock.className='map-lock';lock.innerHTML='<span>Торкніться, щоб керувати картою</span>';
+var done=document.createElement('button');done.type='button';done.className='map-done';done.textContent='Готово · гортати сторінку';
+box.appendChild(lock);box.appendChild(done);
+lock.addEventListener('click',function(){box.classList.add('map-on')});
+done.addEventListener('click',function(){box.classList.remove('map-on')});})();
+</script>
+</body></html>
