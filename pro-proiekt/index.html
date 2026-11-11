@@ -454,22 +454,40 @@ function E(t,a,p,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAtt
 var svg=q('.aicfl-field'),gK=q('.gk'),gM=q('.gm'),cap=q('.aicfl-cap'),notes=q('.aicfl-notes'),mq=window.matchMedia('(max-width:760px)');
 var site='kyiv',mode='tillage',vert=false,idleCap='';
 
+var st0=document.createElement('style');
+st0.textContent='.fl-sub{opacity:0;transition:opacity .6s;pointer-events:none}'+
+ '[data-mode="biochar"] .fl-sub,[data-mode="combo"] .fl-sub{opacity:1;pointer-events:auto}'+
+ '.fl-sub .ss{transition:opacity .5s;cursor:default;outline:none}'+
+ '[data-mode="biochar"] .fl-sub .ss.nb{opacity:.2}'+
+ '.fl-sub .ss text{fill:#fff}'+
+ '.fl-sub .ss:hover,.fl-sub .ss:focus-visible{filter:brightness(1.18)}'+
+ '.fl-sub rect.ol{fill:none;stroke:var(--or);stroke-width:1.8;pointer-events:none}'+
+ '.fl-sub rect.ol2{fill:none;stroke:rgba(244,240,230,.5);stroke-width:1;stroke-dasharray:4 3;pointer-events:none}';
+document.head.appendChild(st0);
+
 var ST=[{id:'trad',l:['Традиційний','обробіток'],m:'вітчизняна техніка',ha:'3,84 га',c:'#6b5736',v0:0,v1:48,d:'Традиційний обробіток · вітчизняна техніка · 3,84 га'},
  {id:'dmt',l:['Вітчизняний','Mini-till'],m:'вітчизняна техніка',ha:'3,84 га',c:'#56693a',v0:48,v1:96,d:'Вітчизняний Mini-till · вітчизняна техніка · 3,84 га'},
  {id:'fmt',l:['Імпортний','Mini-till'],m:'імпортна техніка',ha:'3,84 га',c:'#486548',v0:96,v1:144,d:'Імпортний Mini-till · імпортна техніка · 3,84 га'},
  {id:'st',l:['Strip-till'],m:'імпортна техніка',ha:'1,92 га',c:'#3d6a52',v0:144,v1:168,d:'Strip-till · імпортна техніка · 1,92 га — удвічі менша площа, ніж в інших систем'}];
+
+var SUB=[
+ {k:'ctrl',l:'Контроль',f:'rgba(244,240,230,.16)',bc:true,d:'Контроль · без біопрепаратів і біовугілля · 0,48 га'},
+ {k:'bio',l:'Біопрепарати',f:'rgba(143,191,127,.6)',bc:false,d:'Біопрепарати · 0,48 га'},
+ {k:'both',l:'Біовугілля + біопрепарати',f:'rgba(242,169,59,.62)',bc:false,d:'Біовугілля + біопрепарати · комбінований варіант · 0,48 га'},
+ {k:'char',l:'Біовугілля',f:'rgba(30,20,12,.92)',bc:true,d:'Біовугілля · 5 т/га · 0,48 га'}];
+
 var CAP={
  tillage:'Чотири системи обробітку порівнювали пліч-о-пліч на одному полі площею 15 га. Кожна смуга має близько 800 м і містить і яру пшеницю, і ярий ячмінь.',
  bio:'Біопрепарати порівнювали з необробленим контролем у всіх системах обробітку та по культурах.',
- biochar:'Ділянка ярого ячменю площею 0,48 га під вітчизняним Mini-till містила дослід із біовугіллям, вкладений у головну схему.',
- combo:'У блоці з біовугіллям чотири варіанти перевіряли, чи дає поєднання біопрепаратів із біовугіллям синергічний ефект.',
+ biochar:'Біовугілля (5 т/га) вносили на одній зі смуг по 0,48 га в ярому ячмені під вітчизняним Mini-till. Його порівнювали з контролем такої самої площі — також 0,48 га.',
+ combo:'Ячмінну половину смуги вітчизняного Mini-till (1,92 га) поділено на чотири паралельні смуги по 0,48 га: контроль, біопрепарати, біовугілля та біовугілля + біопрепарати. Так перевірили, чи дає їх поєднання синергію.',
  myk:'Ділянка 0,4 га в Південному Степу, на землі, що постраждала від бойових дій. Чотири варіанти перевіряють відновлення пошкодженого війною ґрунту; вплив вимірюють на рослинах гірчиці.'};
 var NOTE={
  tillage:'<span><i class="sw w"></i>Яра пшениця</span><span><i class="sw b"></i>Ярий ячмінь</span><span>Ширину смуг збільшено для наочності; пропорції збережено.</span>',
  bio:'<span><b>Mycofriend</b> · передпосівна обробка насіння</span><span><b>Azotohelp K + Liposam</b> · на стадії BBCH 37</span>',
- biochar:'<span><b>Біовугілля</b> · 70–75% вуглецю · 5 т/га</span><span>Положення блока всередині смуги схематичне.</span>',
- combo:'<span><b>Контроль</b> · <b>Біопрепарати</b> · <b>Біовугілля</b> · <b>Біовугілля + біопрепарати</b></span><span>Розташування підділянок схематичне.</span>',
- myk:'<span><b>Біопрепарати</b> · Ecostern Detoxicant 1,5 л/га · Groundfix 5 л/га</span><span><b>Біовугілля</b> · 70–75% вуглецю · 5 т/га</span><span>Вплив вимірювали на <b>рослинах гірчиці</b></span>'};
+ biochar:'<span><b>Біовугілля</b> · 5 т/га · суцільне внесення перед посівом ячменю</span><span>Кожна смуга — 0,48 га (1,92 га ÷ 4). Порівняння з контролем: 0,48 га проти 0,48 га.</span>',
+ combo:'<span><b>Контроль</b> · <b>Біопрепарати</b> · <b>Біовугілля</b> · <b>Біовугілля + біопрепарати</b></span><span>Чотири смуги по 0,48 га = 1,92 га (ячмінна половина смуги). Порядок смуг схематичний.</span>',
+ myk:'<span><b>Біопрепарати</b> · Ecostern Detoxicant 1,5 л/га · Groundfix 5 л/га</span><span><b>Біовугілля</b> · 5 т/га</span><span>Вплив вимірювали на <b>рослинах гірчиці</b></span>'};
 var MEAS={kyiv:['Виміряно в Дослідницькому',['Використання пального','Продуктивність техніки','Викиди CO₂','Вологість ґрунту','Ущільнення','Якість сівби','Забур’яненість','Урожайність','Якість врожаю','Хімія ґрунту','Мікробіологія']],
  myk:['Виміряно в Ясній Поляні',['Важкі метали в ґрунті','Важкі метали в рослинах','Залишки вибухових речовин у ґрунті','Щільність ґрунту','Вологість ґрунту','Мікробіологічна активність','Фітопатологічний стан','Вплив на рослини гірчиці']]};
 
@@ -492,39 +510,36 @@ function buildK(G){clear(gK);var d=E('defs',{},gK);
   R(lc,G.rc(0,s.v0,800,vm),{fill:'url(#aicflH)'});R(lc,G.rc(0,vm,800,s.v1),{fill:'rgba(143,191,127,.34)'});
   var m=G.rc(0,s.v0,800,s.v1);E('line',{x1:m.x,y1:m.y+m.h,x2:m.x+(vert?m.w:m.w),y2:m.y+m.h,stroke:'rgba(8,32,25,.7)','stroke-width':1.2},g);
   if(vert)E('line',{x1:m.x+m.w,y1:m.y,x2:m.x+m.w,y2:m.y+m.h,stroke:'rgba(8,32,25,.7)','stroke-width':1.2},g)});
- // lane labels on first strip
- var lab=E('g',{'class':'fl-lane'},gK);var a=G.rc(0,0,800,24),b=G.rc(0,24,800,48);
- E('text',{x:vert?a.x+a.w/2:a.x+10,y:vert?a.y+16:a.y+a.h/2+4,'text-anchor':vert?'middle':'start','class':'fl-lane-t'},lab,'Контроль');
- E('text',{x:vert?b.x+b.w/2:b.x+10,y:vert?b.y+16:b.y+b.h/2+4,'text-anchor':vert?'middle':'start','class':'fl-lane-t'},lab,'Біопрепарати');
- // names
+
+ var lab=E('g',{'class':'fl-lane'},gK);
+ ST.forEach(function(s){var vm=(s.v0+s.v1)/2,fs=(s.v1-s.v0)<30?9:10.5;
+  [['Контроль',s.v0,vm],['Біопрепарати',vm,s.v1]].forEach(function(l){var r=G.rc(0,l[1],800,l[2]);
+   if(vert){var cx=r.x+r.w/2,cy=r.y+r.h/2;
+    E('text',{x:cx,y:cy,dy:'.35em','text-anchor':'middle','class':'fl-lane-t',style:'font-size:'+fs+'px',transform:'rotate(-90 '+cx+' '+cy+')'},lab,l[0])}
+   else{E('text',{x:r.x+10,y:r.y+r.h/2,dy:'.35em','text-anchor':'start','class':'fl-lane-t',style:'font-size:'+fs+'px'},lab,l[0])}})});
+
  var L=E('g',{'class':'fl-labs'},gK);
  ST.forEach(function(s){var r=G.rc(0,s.v0,800,s.v1);
   if(!vert){var cy=r.y+r.h/2,t=E('text',{x:G.ox-14,y:cy-2,'text-anchor':'end','font-size':13.5},L,s.l.join(' '));
    E('text',{x:G.ox-14,y:cy+14,'text-anchor':'end','font-size':10.5,fill:'#a7b6ad',style:'fill:#a7b6ad'},L,s.ha+' · '+s.m)}
   else{var cx=r.x+r.w/2,y=14;s.l.forEach(function(w){E('text',{x:cx,y:y,'text-anchor':'middle','font-size':12.5},L,w);y+=13});
    E('text',{x:cx,y:y+1,'text-anchor':'middle','font-size':10.5,style:'fill:#a7b6ad'},L,s.ha)}});
- // ruler
  var ru=E('g',{'class':'fl-ruler'},gK),mu='fill:#a7b6ad';
  if(!vert){var x0=G.ox,y=22;E('line',{x1:x0,y1:y,x2:x0+800,y2:y,stroke:'rgba(244,240,230,.4)'},ru);[0,400,800].forEach(function(u){E('line',{x1:x0+u,y1:y-4,x2:x0+u,y2:y+4,stroke:'rgba(244,240,230,.4)'},ru)});
   E('text',{x:x0+200,y:12,'text-anchor':'middle','font-size':10.5,style:mu},ru,'Яра пшениця');E('text',{x:x0+600,y:12,'text-anchor':'middle','font-size':10.5,style:mu},ru,'Ярий ячмінь');E('text',{x:x0+800,y:12,'text-anchor':'end','font-size':10.5,style:mu},ru,'800 м')}
  else{var x=18;E('line',{x1:x,y1:G.oy,x2:x,y2:G.oy+496,stroke:'rgba(244,240,230,.4)'},ru);[0,400,800].forEach(function(u){var yy=G.oy+u*G.su;E('line',{x1:x-4,y1:yy,x2:x+4,y2:yy,stroke:'rgba(244,240,230,.4)'},ru)});
   [[200,'Яра пшениця'],[600,'Ярий ячмінь']].forEach(function(a){var yy=G.oy+a[0]*G.su;E('text',{x:9,y:yy,'text-anchor':'middle','font-size':10,transform:'rotate(-90 9 '+yy+')',style:mu},ru,a[1])});
   E('text',{x:24,y:G.H-4,'font-size':10,style:mu},ru,'Смуги завдовжки близько 800 м; довжину стиснуто')}
- // nested block
- var n=E('g',{'class':'fl-nest'},gK),br=G.rc(560,48,760,72),bk=E('g',{'class':'blk'},n),qg=E('g',{'class':'quad'},n);
- R(bk,br,{fill:'rgba(30,20,12,.92)'});E('text',{x:br.x+br.w/2,y:br.y+br.h/2+4,'text-anchor':'middle'},bk,vert?'0.48 ha':'Біовугілля · 0.48 ha');
- [[560,48,660,60,'rgba(244,240,230,.16)'],[660,48,760,60,'rgba(143,191,127,.6)'],[560,60,660,72,'rgba(30,20,12,.92)'],[660,60,760,72,'rgba(242,169,59,.62)']].forEach(function(a){R(qg,G.rc(a[0],a[1],a[2],a[3]),{fill:a[4]})});
- R(n,br,{'class':'ol'});
- // inset
- var ins=E('g',{'class':'fl-inset'},gK),p1=G.pt(560,72),p2=G.pt(520,100),p3=G.pt(760,72),p4=G.pt(780,100);
- E('line',{'class':'fl-con',x1:p1[0],y1:p1[1],x2:p2[0],y2:p2[1]},ins);E('line',{'class':'fl-con',x1:p3[0],y1:p3[1],x2:p4[0],y2:p4[1]},ins);
- var ir=G.rc(520,100,780,164);R(ins,{x:ir.x-3,y:ir.y-3,w:ir.w+6,h:ir.h+6},{fill:'#082019','fill-opacity':.95,stroke:'rgba(242,169,59,.7)','stroke-width':.8});
- var Q=[['Контроль','rgba(244,240,230,.12)',['Контроль']],['Біопрепарати','rgba(143,191,127,.5)',['Біопрепарати']],['Біовугілля','rgba(40,26,14,.75)',['Біовугілля']],['Біовугілля + біопрепарати','rgba(242,169,59,.5)',vert?['Біовугілля +','біопрепарати']:['Біовугілля +','біопрепарати']]];
- Q.forEach(function(qd,i){var cx=i%2,cy=Math.floor(i/2),w=ir.w/2,hh=ir.h/2,r={x:ir.x+cx*w,y:ir.y+cy*hh,w:w,h:hh},g=E('g',{'class':'q','data-d':qd[0]},ins);
-  R(g,r,{fill:qd[1],stroke:'rgba(8,32,25,.8)','stroke-width':1});
-  var lines=qd[2],y0=r.y+r.h/2-(lines.length-1)*6+4;lines.forEach(function(t,k){E('text',{x:r.x+r.w/2,y:y0+k*12,'text-anchor':'middle'},g,t)})});
- // hover/tap details
- qa('.fl-strip,.q',gK).forEach(bindDetail)}
+
+ var dm=ST[1],sw=(dm.v1-dm.v0)/4,sub=E('g',{'class':'fl-sub'},gK);
+ SUB.forEach(function(s,i){var r=G.rc(400,dm.v0+i*sw,800,dm.v0+(i+1)*sw);
+  var g=E('g',{'class':'ss'+(s.bc?'':' nb'),'data-d':s.d,tabindex:0,role:'img','aria-label':s.d},sub);
+  R(g,r,{fill:s.f,stroke:'rgba(8,32,25,.8)','stroke-width':1});
+  var lt=s.l+' · 0,48 га',fs=10;
+  if(vert){var cx=r.x+r.w/2,cy=r.y+r.h/2;E('text',{x:cx,y:cy,dy:'.35em','text-anchor':'middle',style:'font-size:'+fs+'px',transform:'rotate(-90 '+cx+' '+cy+')'},g,lt)}
+  else{E('text',{x:r.x+r.w/2,y:r.y+r.h/2,dy:'.35em','text-anchor':'middle',style:'font-size:'+fs+'px'},g,lt)}});
+ var whole=G.rc(400,dm.v0,800,dm.v1);R(sub,whole,{'class':'ol'});
+ qa('.fl-strip,.ss',gK).forEach(bindDetail)}
 
 function buildM(G){clear(gM);var d=E('defs',{},gM);
  var rp=E('pattern',{id:'aicflR',patternUnits:'userSpaceOnUse',width:8,height:5},d);E('line',{x1:0,y1:2,x2:8,y2:2,stroke:'rgba(236,226,176,.20)','stroke-width':1},rp);
@@ -532,7 +547,7 @@ function buildM(G){clear(gM);var d=E('defs',{},gM);
  var P=vert?{x:22,y:18,w:360,h:244}:{x:262,y:18,w:476,h:264},gap=9,w=P.w/2,h=P.h/2,x=P.x,y=P.y,W=P.w,H=P.h;
  R(gM,{x:x-10,y:y-10,w:W+20,h:H+20},{fill:'rgba(150,128,84,.5)',stroke:'rgba(244,240,230,.35)','pointer-events':'none'});
  var Q=[['Контроль','',['Контроль'],'#7d6a40','Контроль · без обробки'],['Біопрепарати','Ecostern Detoxicant · Groundfix',['Біопрепарати'],'#6f7f48','Біопрепарати · Ecostern Detoxicant 1,5 л/га · Groundfix 5 л/га'],
-  ['Біовугілля','70–75% вуглецю · 5 т/га',['Біовугілля'],'#5c5238','Біовугілля · 70–75% вуглецю · 5 т/га'],['Біовугілля + біопрепарати','Обидва чинники',vert?['Біовугілля +','біопрепарати']:['Біовугілля + біопрепарати'],'#566240','Біовугілля + біопрепарати · обидва чинники · комбінований варіант']];
+  ['Біовугілля','5 т/га',['Біовугілля'],'#5c5238','Біовугілля · 5 т/га'],['Біовугілля + біопрепарати','Обидва чинники',vert?['Біовугілля +','біопрепарати']:['Біовугілля + біопрепарати'],'#566240','Біовугілля + біопрепарати · обидва чинники · комбінований варіант']];
  Q.forEach(function(qd,i){var cx=i%2,cy=Math.floor(i/2),r={x:x+cx*(w+gap/2),y:y+cy*(h+gap/2),w:w-gap/2,h:h-gap/2};
   var g=E('g',{'class':'fl-q',style:'--i:'+i,tabindex:0,role:'button','data-d':qd[4],'aria-label':qd[4]},gM);
   R(g,r,{fill:qd[3],'class':'qb',rx:1.5});R(g,r,{fill:'url(#aicflR)'});
@@ -557,7 +572,6 @@ qa('.aicfl-site').forEach(function(b){b.addEventListener('click',function(){setS
 qa('.m-pin').forEach(function(p){p.addEventListener('click',function(){setSite(p.getAttribute('data-site'))});p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();setSite(p.getAttribute('data-site'))}})});
 qa('.aicfl-modes button').forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-mode'))})});
 
-/* thin line from the map marker to the field */
 var link=q('.aicfl-link'),lp=q('path',link),ld=q('circle',link);
 function placeLink(){link.classList.remove('on');if(window.innerWidth<=900){return}
  var st=q('.aicfl-stage').getBoundingClientRect(),mk=q('#aicfl-mk-'+site).getBoundingClientRect(),f=svg.getBoundingClientRect(),G=geom(vert);
