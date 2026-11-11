@@ -252,6 +252,12 @@ html{scrollbar-color:#103e31 #f5f0e5}
 .register.soon{background:rgba(255,250,240,.7);color:#103e31;border:1.5px dashed #647c70;cursor:default;font-size:13px;padding:10px 14px;text-align:center;line-height:1.25}.register.soon:hover{background:rgba(255,250,240,.7);transform:none}
 @media(max-width:680px){.topbar{gap:12px}.logo{min-width:0;flex:1 1 auto;max-width:calc(100% - 118px)}.logo span{min-width:0;line-height:1.15;overflow-wrap:break-word}.navlinks{flex:0 0 auto;margin-left:4px}.menu-pill{white-space:nowrap;flex-shrink:0}}
 .filter{padding-left:21px}
+/* Fix: no sideways scrolling. The decorative hero circles extended past the viewport edges. */
+html,body{max-width:100%;overflow-x:clip}
+.hero{overflow-x:clip;overflow-y:visible}
+/* Fallback for older phones (iOS Safari before 16) that do not support overflow:clip */
+@supports not (overflow:clip){html{overflow-x:hidden}.hero{overflow-x:hidden}}
+@media(max-width:680px){.hero:before{right:-60px;width:320px;height:320px}.hero:after{left:-80px;width:300px;height:300px}}
 </style>
 </head>
 <body>
